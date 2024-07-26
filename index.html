@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microsoft Clone</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            font-size: 16px;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: #002244;
+            color: #fff;
+        }
+
+        .logo img {
+            height: 50px;
+            cursor: pointer;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #e478cc;
+            text-decoration: underline;
+            text-transform: uppercase;
+        }
+
+        .head-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .head-icons i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .head-icons i:hover {
+            color: #0a4780;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .display {
+            background-image: url("/assets/showcase.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+
+        .display:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+        }
+
+        .display h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .display p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .c-button {
+            cursor: pointer;
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .c-button:hover {
+            background-color: #5f5f5f;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .products article {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .products article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .products img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .prod-info {
+            padding: 20px;
+        }
+
+        .prod-info h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .prod-info p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .bts {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .bts:hover {
+            color: #0078d7;
+        }
+
+        .bts h4 {
+            margin: 0;
+        }
+
+        .bts .icon {
+            font-size: 1rem;
+        }
+
+        .x-box {
+            background-image: url("/assets/xbox.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .x-box-info {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .x-box-info h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .x-box-info p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .ic {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .head-icons {
+                display: none;
+            }
+
+            .ic {
+                display: block;
+                cursor: pointer;
+                font-size: 1.5rem;
+                color: white;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .display {
+                height: auto;
+                padding: 10px;
+                margin-bottom: .1rem;
+            }
+
+            .display h2 {
+                font-size: 1.2rem;
+                margin-top: 7rem;
+                color: black;
+            }
+
+            .display p {
+                font-size: 1rem;
+                color: black;
+            }
+
+            .c-button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+
+            .x-box {
+                height: auto;
+                padding: 20px;
+            }
+
+            .x-box-info {
+                width: 100%;
+            }
+        }
+
+        footer {
+            background: #002244;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+            justify-items: center;
+        }
+
+        .footer-content .social-icons {
+            grid-column: 2;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .footer-content a {
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-content a:hover {
+            color: #e478cc;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="/assets/logo.png" alt="Logo" />
+    </div>
+    <nav>
+        <a href="#">Office</a>
+        <a href="#">Windows</a>
+        <a href="#">Xbox</a>
+        <a href="#">Surface</a>
+        <a href="#">Deals</a>
+        <a href="#">Support</a>
+    </nav>
+    <div class="head-icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <div class="ic">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+</header>
+<main>
+    <section class="display">
+        <div class="dis-info">
+            <h2>Surface Deals</h2>
+            <p>Discover the best deals on Surface devices now!</p>
+            <button class="c-button">Shop Now</button>
+        </div>
+    </section>
+    <section class="products">
+        <article>
+            <img src="/assets/card1.png" alt="Surface Pro 7" />
+            <div class="prod-info">
+                <h1>New Surface Pro 7</h1>
+                <p>See how Katie Sowers, Asst. Coach for the 49ers, uses Surface Pro 7 to put her plans into play.</p>
+                <div class="bts">
+                    <h4>LEARN MORE</h4>
+                    <div class="icon">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article>
+            <img src="/assets/card2.png" alt="Surface Laptop 3" />
+            <div class="prod-info">
+                <h1>New Surface Laptop 3</h1>
+                <p>Express yourself powerfully with a thin, light, and elegant design, faster performance, and up to 11.5
+                    hours battery life.</p>
+                <div class="bts">
+                    <h4>LEARN MORE</h4>
+                    <div class="icon">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article>
+            <img src="/assets/card3.png" alt="Xbox One X" />
+            <div class="prod-info">
+                <h1>Save $150 + free controller</h1>
+                <p>Buy an Xbox One X console and double your fun with a free select extra controller. Starting at $349.</p>
+                <div class="bts">
+                    <h4>LEARN MORE</h4>
+                    <div class="icon">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <article>
+            <img src="/assets/card4.png" alt="Microsoft Edge" />
+            <div class="prod-info">
+                <h1>The new Microsoft Edge</h1>
+                <p>Expect more. World class performance, with more privacy, more productivity, and more value.</p>
+                <div class="bts">
+                    <h4>LEARN MORE</h4>
+                    <div class="icon">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="x-box">
+        <div class="x-box-info">
+            <h1>Xbox Game Pass Ultimate</h1>
+            <p>Xbox Game Pass Ultimate Xbox Live Gold and over 100 high-quality console and PC games. Play together with
+                friends and discover your next favorite game.</p>
+            <button class="c-button">
+                Join Now <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="footer-content">
+        <div></div> <!-- Empty space on the left -->
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+        <div></div> <!-- Empty space on the right -->
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Microsoft Clone. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+    const rev = ScrollReveal({
+        distance: "20%",
+        delay: 200,
+    });
+
+    rev.reveal(".logo", { origin: "left" });
+    rev.reveal("nav", { origin: "top" });
+    rev.reveal(".head-icons", { origin: "right" });
+    rev.reveal(".products", { origin: "left", delay: 100, interval: 500 });
+    rev.reveal("article", { interval: 200, origin: "left" });
+</script>
+</body>
+</html>
