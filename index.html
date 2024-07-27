@@ -152,6 +152,10 @@
             display: block;
             object-fit: cover;
         }
+        .products img:hover{
+          transform: scale(1.3);
+          transition: transform 0.8s ease, box-shadow 0.3s ease;
+        }
 
         .prod-info {
             padding: 20px;
@@ -177,6 +181,7 @@
 
         .bts:hover {
             color: #0078d7;
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
         }
 
         .bts h4 {
@@ -202,12 +207,16 @@
         }
 
         .x-box-info {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(54, 51, 51, 0.5);
             padding: 20px;
             border-radius: 15px;
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
+        }
+        .x-box-info:hover{
+          background: rgba(54, 51, 51, 0.8);
+          transition: transform 0.5s ease, box-shadow 0.3s ease;
         }
 
         .x-box-info h1 {
